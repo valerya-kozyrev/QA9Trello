@@ -1,7 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="c0f8e39e-5569-4c8f-a2a0-fec6c9f9d33e" name="Default Changelist" comment="" />
+    <list default="true" id="c0f8e39e-5569-4c8f-a2a0-fec6c9f9d33e" name="Default Changelist" comment="2021.06.28">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/tests/CurrentBoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tests/CurrentBoardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tests/LoginTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/tests/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tests/TestBase.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -40,7 +45,7 @@
       <recent name="C:\Users\User\IdeaProjects\QA9Trello\src\tests" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.CurrentBoardTest.deleteListTest (1)">
+  <component name="RunManager" selected="TestNG.CurrentBoardTest.archiveListTest">
     <configuration name="CurrentBoardTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA9Trello" />
       <extension name="coverage">
@@ -69,6 +74,24 @@
       <option name="PACKAGE_NAME" value="tests" />
       <option name="MAIN_CLASS_NAME" value="tests.CurrentBoardTest" />
       <option name="TEST_OBJECT" value="CLASS" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CurrentBoardTest.archiveListTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="QA9Trello" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.company.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.company.tests" />
+      <option name="MAIN_CLASS_NAME" value="com.company.tests.CurrentBoardTest" />
+      <option name="METHOD_NAME" value="archiveListTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
       <method v="2">
@@ -79,12 +102,12 @@
       <module name="QA9Trello" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.company.tests.tests.*" />
+          <option name="PATTERN" value="com.company.tests.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.CurrentBoardTest" />
+      <option name="PACKAGE_NAME" value="com.company.tests" />
+      <option name="MAIN_CLASS_NAME" value="com.company.tests.CurrentBoardTest" />
       <option name="METHOD_NAME" value="copyListTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
@@ -93,7 +116,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CurrentBoardTest.deleteListTest (1)" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="CurrentBoardTest.createNewListTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA9Trello" />
       <extension name="coverage">
         <pattern>
@@ -103,7 +126,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.company.tests" />
       <option name="MAIN_CLASS_NAME" value="com.company.tests.CurrentBoardTest" />
-      <option name="METHOD_NAME" value="deleteListTest" />
+      <option name="METHOD_NAME" value="createNewListTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -111,25 +134,7 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CurrentBoardTest.deleteListTest" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="QA9Trello" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.company.tests.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.CurrentBoardTest" />
-      <option name="METHOD_NAME" value="deleteListTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginTests.positiveLogin" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="LoginTests" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA9Trello" />
       <extension name="coverage">
         <pattern>
@@ -139,8 +144,7 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.company.tests" />
       <option name="MAIN_CLASS_NAME" value="com.company.tests.LoginTests" />
-      <option name="METHOD_NAME" value="positiveLogin" />
-      <option name="TEST_OBJECT" value="METHOD" />
+      <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
       <method v="2">
@@ -148,19 +152,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="TestNG.CurrentBoardTest" />
-      <item itemvalue="TestNG.LoginTests.positiveLogin" />
-      <item itemvalue="TestNG.CurrentBoardTest.deleteListTest" />
+      <item itemvalue="TestNG.CurrentBoardTest.createNewListTest" />
+      <item itemvalue="TestNG.CurrentBoardTest.archiveListTest" />
       <item itemvalue="TestNG.CurrentBoardTest.copyListTest" />
-      <item itemvalue="TestNG.CurrentBoardTest.deleteListTest (1)" />
+      <item itemvalue="TestNG.LoginTests" />
+      <item itemvalue="TestNG.CurrentBoardTest" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="TestNG.CurrentBoardTest.deleteListTest (1)" />
-        <item itemvalue="TestNG.CurrentBoardTest.copyListTest" />
-        <item itemvalue="TestNG.CurrentBoardTest.deleteListTest" />
-        <item itemvalue="TestNG.LoginTests.positiveLogin" />
+        <item itemvalue="TestNG.CurrentBoardTest.archiveListTest" />
         <item itemvalue="TestNG.CurrentBoardTest" />
+        <item itemvalue="TestNG.LoginTests" />
+        <item itemvalue="TestNG.CurrentBoardTest.copyListTest" />
+        <item itemvalue="TestNG.CurrentBoardTest.createNewListTest" />
       </list>
     </recent_temporary>
   </component>
@@ -177,35 +181,43 @@
     </task>
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="2021.06.28" />
+    <option name="LAST_COMMIT_MESSAGE" value="2021.06.28" />
+  </component>
   <component name="WindowStateProjectService">
-    <state x="2032" y="261" key="FileChooserDialogImpl" timestamp="1624642137205">
+    <state x="1458" y="92" width="1736" height="856" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1624820529627">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="2032" y="261" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1624642137205" />
-    <state x="2204" y="417" key="Github.ShareDialog" timestamp="1624642371068">
+    <state x="1458" y="92" width="1736" height="856" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1624820529627" />
+    <state x="2032" y="261" key="FileChooserDialogImpl" timestamp="1624900646638">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="2204" y="417" key="Github.ShareDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1624642371068" />
-    <state x="2119" y="217" key="Github.UntrackedFilesDialog" timestamp="1624471056646">
+    <state x="2032" y="261" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1624900646638" />
+    <state x="2204" y="417" key="Github.ShareDialog" timestamp="1624642731956">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="2119" y="217" key="Github.UntrackedFilesDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1624471056646" />
-    <state width="1877" height="276" key="GridCell.Tab.0.bottom" timestamp="1624642377233">
+    <state x="2204" y="417" key="Github.ShareDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1624642731956" />
+    <state x="2119" y="217" key="Github.UntrackedFilesDialog" timestamp="1624642740505">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="276" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1624642377233" />
-    <state width="1877" height="276" key="GridCell.Tab.0.center" timestamp="1624642377233">
+    <state x="2119" y="217" key="Github.UntrackedFilesDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1624642740505" />
+    <state width="1877" height="184" key="GridCell.Tab.0.bottom" timestamp="1624903934057">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="276" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1624642377233" />
-    <state width="1877" height="276" key="GridCell.Tab.0.left" timestamp="1624642377233">
+    <state width="1877" height="184" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1624903934057" />
+    <state width="1877" height="184" key="GridCell.Tab.0.center" timestamp="1624903934057">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="276" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1624642377233" />
-    <state width="1877" height="276" key="GridCell.Tab.0.right" timestamp="1624642377233">
+    <state width="1877" height="184" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1624903934057" />
+    <state width="1877" height="184" key="GridCell.Tab.0.left" timestamp="1624903934057">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="276" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1624642377233" />
+    <state width="1877" height="184" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1624903934057" />
+    <state width="1877" height="184" key="GridCell.Tab.0.right" timestamp="1624903934057">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state width="1877" height="184" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1624903934057" />
     <state x="2141" y="453" key="ReplaceDuplicatesPrompt" timestamp="1624470262990">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>

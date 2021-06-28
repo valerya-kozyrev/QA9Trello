@@ -2,127 +2,161 @@ package com.company.tests;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+
+import java.util.List;
 
 public class CurrentBoardTest extends TestBase {
 
     @BeforeMethod
-    public void initTest() throws InterruptedException {
+    public void initTest() {
 
+        // click 'Log in' button
+        waitUntilelementIsClickable(By.cssSelector(".text-primary"), 20);
         driver.findElement(By.cssSelector(".text-primary")).click();
 
+        // fill in email field
+        waitUntilelementIsClickable(By.id("login"), 10);
         WebElement emailField = driver.findElement(By.id("user"));
-        editField(emailField, "lerkucij@gmail.com");
+        editField(emailField, LOGIN);
 
+        // press 'Log in with Atlassian' button
         driver.findElement(By.id("login")).click();
-        Thread.sleep(3000);
 
+        // fill in password field
+        waitUntilelementIsClickable(By.id("login-submit"), 10);
         WebElement passwordField = driver.findElement(By.id("password"));
-        editField(passwordField, "trello0909");
+        editField(passwordField, PASSWORD);
 
+        // press log-in button
         WebElement loginButton = driver.findElement(By.id("login-submit"));
         loginButton.click();
-        Thread.sleep(3000);
 
+        // click on board QA9 tab
+        waitUntilelementIsClickable(By.xpath("//div[@title='QA9']"), 10);
         WebElement board = driver.findElements(By.xpath("//div[@title='QA9']")).get(0);
         board.click();
-        Thread.sleep(3000);
+        waitUntilelementIsVisible(By.cssSelector(".js-list-content"), 10);
     }
 
     @Test
-    public void createNewListTest() throws InterruptedException {
+    public void createNewListTest() {
 
+        int numberOfListsBefore = driver.findElements(By.cssSelector(".js-list-content")).size();
+
+        // press 'Add list button'
         WebElement openAddList = driver.findElement(By.className("placeholder"));
         openAddList.click();
 
+        // enter name of the list
         WebElement enterListTitle = driver.findElement(By.className("list-name-input"));
         editField(enterListTitle,"New List");
 
-        WebElement addListButton = driver.findElement(By.cssSelector("input[value=\"Add list\"]"));
+        // click 'Add list' button
+        WebElement addListButton = driver.findElement(By.cssSelector(".js-save-edit"));
         addListButton.click();
-        Thread.sleep(3000);
 
-        WebElement closeAddAnotherList = driver.findElement(By.cssSelector("a[aria-label=\"Cancel list editing\"]"));
+        // click 'x' button to cancel new list creating
+        WebElement closeAddAnotherList = driver.findElement(By.cssSelector(".js-cancel-edit"));
         closeAddAnotherList.click();
-        Thread.sleep(3000);
+
+        int numberOfListsAfter = driver.findElements(By.cssSelector(".js-list-content")).size();
+        Assert.assertEquals(numberOfListsBefore+1, numberOfListsAfter);
     }
 
     @Test
-    public void addNewCardTest() throws InterruptedException {
+    public void addNewCardTest() {
+
+        // press 'Add a card'
         WebElement addCardButton = driver.findElement(By.cssSelector(".card-composer-container"));
         addCardButton.click();
 
+        // fill in card title
         WebElement cardTitleField = driver.findElement(By.cssSelector(".js-card-title"));
         editField(cardTitleField, "card tile");
 
         driver.findElement(By.cssSelector(".js-add-card")).click();
 
-        WebElement closeAddanotherCard = driver.findElement(By.cssSelector(".js-cancel"));
-        closeAddanotherCard.click();
-        Thread.sleep(3000);
+        WebElement closeAddAnotherCard = driver.findElement(By.cssSelector(".js-cancel"));
+        closeAddAnotherCard.click();
     }
 
     @Test
-    public void deleteListTest() throws InterruptedException {
-        if(isPresent()){
-            openListActions();
-            delete();
-        } else{
-            createNewListTest();
-            openListActions();
-            delete();
+    public void archiveListTest() {
+
+        int numberOfListsBefore = driver.findElements(By.cssSelector(".js-list-content")).size();
+
+        if (numberOfListsBefore == 0) {
+            // press 'Add list button'
+            WebElement createListButton = driver.findElement(By.cssSelector(".placeholder"));
+            createListButton.click();
+
+            // enter name of the list
+            WebElement nameListField = driver.findElement(By.cssSelector("input[name='name']"));
+            editField(nameListField, "Test List");
+
+            // click 'Add list' button
+            WebElement saveListButton = driver.findElement(By.cssSelector(".js-save-edit"));
+            saveListButton.click();
+
+            // click 'x' button to cancel new list creating
+            WebElement cancelListCreatingButton = driver.findElement(By.cssSelector(".js-cancel-edit"));
+            cancelListCreatingButton.click();
+
+            numberOfListsBefore = driver.findElements(By.cssSelector(".js-list-content")).size();
         }
+
+        // click on the list menu
+        driver.findElement(By.cssSelector(".list-header-extras-menu")).click();
+
+        // click on "Archive this list"
+        waitUntilelementIsClickable(By.cssSelector(".js-close-list"), 20);
+        driver.findElement(By.cssSelector(".js-close-list")).click();
+
+        int numberOfListsAfter = driver.findElements(By.cssSelector(".js-list-content")).size();
+        Assert.assertEquals(numberOfListsBefore-1, numberOfListsAfter);
     }
 
     @Test
-    public void copyListTest() throws InterruptedException {
-        if(isPresent()){
-            openListActions();
-            copy();
-        } else{
-            createNewListTest();
-            openListActions();
-            copy();
+    public void copyListTest() {
+
+        int numberOfListsBefore = driver.findElements(By.cssSelector(".js-list-content")).size();
+        if (numberOfListsBefore == 0) {
+            // press 'Add list button'
+            WebElement createListButton = driver.findElement(By.cssSelector(".placeholder"));
+            createListButton.click();
+
+            // enter name of the list
+            WebElement nameListField = driver.findElement(By.cssSelector("input[name='name']"));
+            editField(nameListField, "Test List");
+
+            // click 'Add list' button
+            WebElement saveListButton = driver.findElement(By.cssSelector(".js-save-edit"));
+            saveListButton.click();
+
+            // click 'x' button to cancel new list creating
+            WebElement cancelListCreatingButton = driver.findElement(By.cssSelector(".js-cancel-edit"));
+            cancelListCreatingButton.click();
+
+            numberOfListsBefore = driver.findElements(By.cssSelector(".js-list-content")).size();
         }
+        // click on the list menu
+        driver.findElement(By.cssSelector(".list-header-extras-menu")).click();
+
+        // click on "Copy list"
+        driver.findElement(By.cssSelector(".js-copy-list")).click();
+
+        //enter list title
+        WebElement nameField = driver.findElement(By.cssSelector(".js-autofocus"));
+        nameField.sendKeys("nameChanged");
+
+        //click on "Create list"
+        driver.findElement(By.cssSelector(".js-submit")).click();
+
+        int numberOfListsAfter = driver.findElements(By.cssSelector(".js-list-content")).size();
+        Assert.assertEquals(numberOfListsBefore+1, numberOfListsAfter);
     }
-
-    private boolean isPresent() {
-        return driver.findElements(By.cssSelector(".list-header-target")).size()>0;
-    }
-
-    private void copy() throws InterruptedException {
-        WebElement copyList = driver.findElement(By.className("js-copy-list"));
-        copyList.click();
-        Thread.sleep(3000);
-
-        WebElement nameField = driver.findElement(By.className("js-autofocus"));
-        nameField.sendKeys("1");
-        Thread.sleep(3000);
-
-        WebElement createListButton = driver.findElement(By.cssSelector(".js-submit"));
-        createListButton.click();
-        Thread.sleep(3000);
-    }
-
-    private void delete() throws InterruptedException {
-        WebElement archiveThisList = driver.findElement(By.className("js-close-list"));
-        archiveThisList.click();
-        Thread.sleep(3000);
-    }
-
-    private void openListActions() throws InterruptedException {
-        WebElement listActions = driver.findElement(By.cssSelector(".list-header-extras"));
-        listActions.click();
-        Thread.sleep(3000);
-    }
-
-    private void editField(WebElement field, String value) throws InterruptedException {
-        field.click();
-        field.sendKeys(value);
-        Thread.sleep(3000);
-    }
-
-
 }
 
