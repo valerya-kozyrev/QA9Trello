@@ -14,11 +14,11 @@ public class CurrentBoardTest extends TestBase {
     public void initTest() {
 
         // click 'Log in' button
-        waitUntilelementIsClickable(By.cssSelector(".text-primary"), 20);
+        waitUntilElementIsClickable(By.cssSelector(".text-primary"), 20);
         driver.findElement(By.cssSelector(".text-primary")).click();
 
         // fill in email field
-        waitUntilelementIsClickable(By.id("login"), 10);
+        waitUntilElementIsClickable(By.xpath("//input[@value='Log in with Atlassian']"), 10);
         WebElement emailField = driver.findElement(By.id("user"));
         editField(emailField, LOGIN);
 
@@ -26,7 +26,7 @@ public class CurrentBoardTest extends TestBase {
         driver.findElement(By.id("login")).click();
 
         // fill in password field
-        waitUntilelementIsClickable(By.id("login-submit"), 10);
+        waitUntilElementIsClickable(By.id("login-submit"), 10);
         WebElement passwordField = driver.findElement(By.id("password"));
         editField(passwordField, PASSWORD);
 
@@ -35,11 +35,13 @@ public class CurrentBoardTest extends TestBase {
         loginButton.click();
 
         // click on board QA9 tab
-        waitUntilelementIsClickable(By.xpath("//div[@title='QA9']"), 10);
+        waitUntilElementIsClickable(By.xpath("//div[@title='QA9']"), 10);
         WebElement board = driver.findElements(By.xpath("//div[@title='QA9']")).get(0);
         board.click();
-        waitUntilelementIsVisible(By.cssSelector(".js-list-content"), 10);
+        waitUntilElementIsClickable(By.cssSelector(".placeholder"),10);
+        waitUntilelementIsVisible(By.cssSelector(".js-list-content"), 20);
     }
+
 
     @Test
     public void createNewListTest() {
@@ -90,20 +92,20 @@ public class CurrentBoardTest extends TestBase {
 
         if (numberOfListsBefore == 0) {
             // press 'Add list button'
-            WebElement createListButton = driver.findElement(By.cssSelector(".placeholder"));
-            createListButton.click();
+            WebElement openAddList = driver.findElement(By.className("placeholder"));
+            openAddList.click();
 
             // enter name of the list
-            WebElement nameListField = driver.findElement(By.cssSelector("input[name='name']"));
-            editField(nameListField, "Test List");
+            WebElement enterListTitle = driver.findElement(By.className("list-name-input"));
+            editField(enterListTitle, "Other List");
 
             // click 'Add list' button
-            WebElement saveListButton = driver.findElement(By.cssSelector(".js-save-edit"));
-            saveListButton.click();
+            WebElement addListButton = driver.findElement(By.cssSelector(".js-save-edit"));
+            addListButton.click();
 
             // click 'x' button to cancel new list creating
-            WebElement cancelListCreatingButton = driver.findElement(By.cssSelector(".js-cancel-edit"));
-            cancelListCreatingButton.click();
+            WebElement closeAddAnotherList = driver.findElement(By.cssSelector(".js-cancel-edit"));
+            closeAddAnotherList.click();
 
             numberOfListsBefore = driver.findElements(By.cssSelector(".js-list-content")).size();
         }
@@ -112,8 +114,7 @@ public class CurrentBoardTest extends TestBase {
         driver.findElement(By.cssSelector(".list-header-extras-menu")).click();
 
         // click on "Archive this list"
-        waitUntilelementIsClickable(By.cssSelector(".js-close-list"), 20);
-        driver.findElement(By.cssSelector(".js-close-list")).click();
+        driver.findElement(By.className("js-close-list")).click();
 
         int numberOfListsAfter = driver.findElements(By.cssSelector(".js-list-content")).size();
         Assert.assertEquals(numberOfListsBefore-1, numberOfListsAfter);
@@ -123,22 +124,23 @@ public class CurrentBoardTest extends TestBase {
     public void copyListTest() {
 
         int numberOfListsBefore = driver.findElements(By.cssSelector(".js-list-content")).size();
+
         if (numberOfListsBefore == 0) {
             // press 'Add list button'
-            WebElement createListButton = driver.findElement(By.cssSelector(".placeholder"));
-            createListButton.click();
+            WebElement openAddList = driver.findElement(By.className("placeholder"));
+            openAddList.click();
 
             // enter name of the list
-            WebElement nameListField = driver.findElement(By.cssSelector("input[name='name']"));
-            editField(nameListField, "Test List");
+            WebElement enterListTitle = driver.findElement(By.className("list-name-input"));
+            editField(enterListTitle, "Other List");
 
             // click 'Add list' button
-            WebElement saveListButton = driver.findElement(By.cssSelector(".js-save-edit"));
-            saveListButton.click();
+            WebElement addListButton = driver.findElement(By.cssSelector(".js-save-edit"));
+            addListButton.click();
 
             // click 'x' button to cancel new list creating
-            WebElement cancelListCreatingButton = driver.findElement(By.cssSelector(".js-cancel-edit"));
-            cancelListCreatingButton.click();
+            WebElement closeAddAnotherList = driver.findElement(By.cssSelector(".js-cancel-edit"));
+            closeAddAnotherList.click();
 
             numberOfListsBefore = driver.findElements(By.cssSelector(".js-list-content")).size();
         }
@@ -146,11 +148,11 @@ public class CurrentBoardTest extends TestBase {
         driver.findElement(By.cssSelector(".list-header-extras-menu")).click();
 
         // click on "Copy list"
-        driver.findElement(By.cssSelector(".js-copy-list")).click();
+        driver.findElement(By.className("js-copy-list")).click();
 
         //enter list title
-        WebElement nameField = driver.findElement(By.cssSelector(".js-autofocus"));
-        nameField.sendKeys("nameChanged");
+        WebElement nameField = driver.findElement(By.className("js-autofocus"));
+        nameField.sendKeys("Changed");
 
         //click on "Create list"
         driver.findElement(By.cssSelector(".js-submit")).click();

@@ -16,9 +16,9 @@ public class LoginTests extends TestBase {
     @BeforeMethod
     public void initTest() {
         // click on "Log in" button
-        waitUntilelementIsClickable(By.cssSelector(".text-primary"), 20);
+        waitUntilElementIsClickable(By.cssSelector(".text-primary"), 20);
         driver.findElement(By.cssSelector(".text-primary")).click();
-        waitUntilelementIsClickable(By.id("login"), 10);
+        waitUntilElementIsClickable(By.id("login"), 10);
     }
 
     @Test
@@ -51,10 +51,13 @@ public class LoginTests extends TestBase {
         editField(emailField, LOGIN);
 
         // press 'Log in with Atlassian' button
+        waitUntilElementIsClickable(By.xpath("//input[@value='Log in with Atlassian']"), 10);
         driver.findElement(By.id("login")).click();
+//        driver.findElement(By.xpath("//input[@value='Log in with Atlassian']")).click();
 
         // fill in password field
-        waitUntilelementIsClickable(By.id("login-submit"), 10);
+        waitUntilElementIsClickable(By.id("login-submit"), 10);
+//        waitUntilelementIsClickable(By.id("password"), 10);
         WebElement passwordField = driver.findElement(By.id("password"));
         editField(passwordField, PASSWORD);
 
@@ -63,8 +66,8 @@ public class LoginTests extends TestBase {
         loginButton.click();
 
         //assert login
-        waitUntilelementIsVisible(By.xpath("//div[@title='QA9']"), 10);
-        Assert.assertEquals(driver.findElements(By.xpath("//span[contains(text(), 'Boards')]")).get(0).getText(),
+        waitUntilelementIsVisible(By.xpath("//span[contains(text(),'Boards')]"), 20);
+        Assert.assertEquals(driver.findElements(By.xpath("//span[contains(text(),'Boards')]")).get(0).getText(),
                 "Boards", "Name of the button is not 'Boards'");
 
     }

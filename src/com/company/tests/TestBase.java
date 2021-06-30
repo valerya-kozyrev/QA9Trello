@@ -40,7 +40,7 @@ public class TestBase {
         field.sendKeys(value);
     }
 
-    public void waitUntilelementIsClickable(By locator, int time) {
+    public void waitUntilElementIsClickable(By locator, int time) {
         try {
             new WebDriverWait(driver, time).until(ExpectedConditions.elementToBeClickable(locator));
         } catch (Exception e) {
