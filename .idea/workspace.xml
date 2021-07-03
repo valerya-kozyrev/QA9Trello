@@ -21,9 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="c0f8e39e-5569-4c8f-a2a0-fec6c9f9d33e" name="Default Changelist" comment="2021.06.28">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/QA9Trello.iml" beforeDir="false" afterPath="$PROJECT_DIR$/QA9Trello.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/tests/CurrentBoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tests/CurrentBoardTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tests/LoginTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/tests/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tests/TestBase.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/tests/TestBase.java" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,31 +50,32 @@
   </component>
   <component name="PropertiesComponent">
     <property name="extract.method.default.visibility" value="private" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/com/company/tests" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/../21.06.16_Lesson_5" />
-    <property name="project.structure.last.edited" value="Libraries" />
-    <property name="project.structure.proportion" value="0.0" />
-    <property name="project.structure.side.proportion" value="0.0" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="org.jetbrains.plugins.github.ui.GithubSettingsConfigurable" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+      <recent name="com.company" />
       <recent name="com.company.tests" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\User\IdeaProjects\QA9Trello\src\com\company" />
       <recent name="C:\Users\User\IdeaProjects\QA9Trello\src\tests" />
     </key>
   </component>
   <component name="RunManager" selected="TestNG.CurrentBoardTest.copyListTest">
     <configuration name="CurrentBoardTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA9Trello" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.company.tests.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="tests" />
-      <option name="MAIN_CLASS_NAME" value="tests.CurrentBoardTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CurrentBoardTest" />
       <option name="TEST_OBJECT" value="CLASS" />
       <properties />
       <listeners />
@@ -83,15 +85,33 @@
     </configuration>
     <configuration name="CurrentBoardTest.archiveListTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA9Trello" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.company.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.company.tests" />
-      <option name="MAIN_CLASS_NAME" value="com.company.tests.CurrentBoardTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CurrentBoardTest" />
       <option name="METHOD_NAME" value="archiveListTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CurrentBoardTest.archiveNameListTest (3)" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="QA9Trello" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CurrentBoardTest" />
+      <option name="METHOD_NAME" value="archiveNameListTest" />
+      <option name="TEST_OBJECT" value="METHOD" />
+      <properties />
+      <listeners />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CurrentBoardTest.archiveNameListTest" type="TestNG" temporary="true" nameIsGenerated="true">
+      <module name="QA9Trello" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CurrentBoardTest" />
+      <option name="METHOD_NAME" value="archiveNameListTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -101,14 +121,8 @@
     </configuration>
     <configuration name="CurrentBoardTest.copyListTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA9Trello" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.company.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.company.tests" />
-      <option name="MAIN_CLASS_NAME" value="com.company.tests.CurrentBoardTest" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="MAIN_CLASS_NAME" value="CurrentBoardTest" />
       <option name="METHOD_NAME" value="copyListTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
@@ -117,77 +131,24 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CurrentBoardTest.createNewListTest" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="QA9Trello" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.company.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.company.tests" />
-      <option name="MAIN_CLASS_NAME" value="com.company.tests.CurrentBoardTest" />
-      <option name="METHOD_NAME" value="createNewListTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginTests.loginPositiveTest (1)" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="QA9Trello" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.company.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.company.tests" />
-      <option name="MAIN_CLASS_NAME" value="com.company.tests.LoginTests" />
-      <option name="METHOD_NAME" value="loginPositiveTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LoginTests.loginPositiveTest" type="TestNG" temporary="true" nameIsGenerated="true">
-      <module name="QA9Trello" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.company.tests.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.company.tests" />
-      <option name="MAIN_CLASS_NAME" value="com.company.tests.LoginTests" />
-      <option name="METHOD_NAME" value="loginPositiveTest" />
-      <option name="TEST_OBJECT" value="METHOD" />
-      <properties />
-      <listeners />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <list>
-      <item itemvalue="TestNG.CurrentBoardTest.archiveListTest" />
-      <item itemvalue="TestNG.LoginTests.loginPositiveTest" />
-      <item itemvalue="TestNG.LoginTests.loginPositiveTest (1)" />
-      <item itemvalue="TestNG.CurrentBoardTest.createNewListTest" />
+      <item itemvalue="TestNG.CurrentBoardTest.archiveNameListTest" />
+      <item itemvalue="TestNG.CurrentBoardTest.archiveNameListTest (3)" />
+      <item itemvalue="TestNG.CurrentBoardTest" />
       <item itemvalue="TestNG.CurrentBoardTest.copyListTest" />
+      <item itemvalue="TestNG.CurrentBoardTest.archiveListTest" />
     </list>
     <recent_temporary>
       <list>
         <item itemvalue="TestNG.CurrentBoardTest.copyListTest" />
         <item itemvalue="TestNG.CurrentBoardTest.archiveListTest" />
-        <item itemvalue="TestNG.CurrentBoardTest.createNewListTest" />
-        <item itemvalue="TestNG.LoginTests.loginPositiveTest" />
-        <item itemvalue="TestNG.LoginTests.loginPositiveTest (1)" />
+        <item itemvalue="TestNG.CurrentBoardTest" />
+        <item itemvalue="TestNG.CurrentBoardTest.archiveNameListTest" />
+        <item itemvalue="TestNG.CurrentBoardTest.archiveNameListTest (3)" />
       </list>
     </recent_temporary>
   </component>
+  <component name="SpellCheckerSettings" BundledDictionaries="0" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" Dictionaries="0" CorrectionsLimit="5" DefaultDictionary="application-level" UseSingleDictionary="true" />
   <component name="SvnConfiguration">
     <configuration />
   </component>
@@ -206,7 +167,14 @@
       <option name="project" value="LOCAL" />
       <updated>1624904162459</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="2021.06.28">
+      <created>1625075700497</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1625075700497</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -226,57 +194,34 @@
     <option name="LAST_COMMIT_MESSAGE" value="2021.06.28" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1458" y="92" width="1736" height="856" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1624820529627">
+    <state x="2106" y="274" key="FileChooserDialogImpl" timestamp="1625252769681">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="1458" y="92" width="1736" height="856" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1624820529627" />
-    <state x="2032" y="261" key="FileChooserDialogImpl" timestamp="1625068842498">
+    <state x="2106" y="274" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625252769681" />
+    <state width="1877" height="208" key="GridCell.Tab.0.bottom" timestamp="1625309115229">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="2032" y="261" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625068842498" />
-    <state x="2204" y="417" key="Github.ShareDialog" timestamp="1624642731956">
+    <state width="1877" height="208" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625309115229" />
+    <state width="1877" height="208" key="GridCell.Tab.0.center" timestamp="1625309115229">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="2204" y="417" key="Github.ShareDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1624642731956" />
-    <state x="2119" y="217" key="Github.UntrackedFilesDialog" timestamp="1624642740505">
+    <state width="1877" height="208" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625309115229" />
+    <state width="1877" height="208" key="GridCell.Tab.0.left" timestamp="1625309115229">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="2119" y="217" key="Github.UntrackedFilesDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1624642740505" />
-    <state width="1877" height="184" key="GridCell.Tab.0.bottom" timestamp="1625075231414">
+    <state width="1877" height="208" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625309115229" />
+    <state width="1877" height="208" key="GridCell.Tab.0.right" timestamp="1625309115229">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="184" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625075231414" />
-    <state width="1877" height="184" key="GridCell.Tab.0.center" timestamp="1625075231413">
+    <state width="1877" height="208" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625309115229" />
+    <state x="1806" y="94" key="SettingsEditor" timestamp="1625162405372">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="184" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625075231413" />
-    <state width="1877" height="184" key="GridCell.Tab.0.left" timestamp="1625075231413">
-      <screen x="1366" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="184" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625075231413" />
-    <state width="1877" height="184" key="GridCell.Tab.0.right" timestamp="1625075231414">
-      <screen x="1366" y="0" width="1920" height="1040" />
-    </state>
-    <state width="1877" height="184" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625075231414" />
-    <state x="2141" y="453" key="ReplaceDuplicatesPrompt" timestamp="1624470262990">
-      <screen x="1366" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2141" y="453" key="ReplaceDuplicatesPrompt/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1624470262990" />
-    <state x="1806" y="94" key="SettingsEditor" timestamp="1624641775178">
-      <screen x="1366" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1806" y="94" key="SettingsEditor/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1624641775178" />
-    <state width="498" height="446" key="SwitcherDM" timestamp="1625071176027">
-      <screen x="1366" y="0" width="1920" height="1040" />
-    </state>
-    <state width="498" height="446" key="SwitcherDM/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625071176027" />
-    <state x="1918" y="252" key="Vcs.Push.Dialog.v2" timestamp="1624904239175">
-      <screen x="1366" y="0" width="1920" height="1040" />
-    </state>
-    <state x="1918" y="252" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1624904239175" />
-    <state x="2056" y="267" key="extract.method.dialog" timestamp="1624640204763">
-      <screen x="1366" y="0" width="1920" height="1040" />
-    </state>
-    <state x="2056" y="267" key="extract.method.dialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1624640204763" />
+    <state x="1806" y="94" key="SettingsEditor/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625162405372" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/QA9Trello$LoginTests.ic" NAME="LoginTests Coverage Results" MODIFIED="1625159427215" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false">
+      <FILTER>com.company.*</FILTER>
+    </SUITE>
   </component>
 </project>

@@ -1,11 +1,5 @@
-package com.company.tests;
-
 import org.openqa.selenium.By;
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.ExpectedCondition;
-import org.openqa.selenium.support.ui.ExpectedConditions;
-import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -37,7 +31,7 @@ public class LoginTests extends TestBase {
         loginButton.click();
 
         // output error-message
-        waitUntilelementIsVisible(By.cssSelector("p.error-message"), 10);
+        waitUntilElementIsVisible(By.cssSelector("p.error-message"), 10);
         Assert.assertEquals(driver.findElements(By.cssSelector("p.error-message")).get(0).getText(),
                 "There isn't an account for this username",
                 "The error message is not correct");
@@ -57,7 +51,7 @@ public class LoginTests extends TestBase {
 
         // fill in password field
         waitUntilElementIsClickable(By.id("login-submit"), 10);
-//        waitUntilelementIsClickable(By.id("password"), 10);
+//        waitUntilElementIsClickable(By.id("password"), 10);
         WebElement passwordField = driver.findElement(By.id("password"));
         editField(passwordField, PASSWORD);
 
@@ -66,7 +60,7 @@ public class LoginTests extends TestBase {
         loginButton.click();
 
         //assert login
-        waitUntilelementIsVisible(By.xpath("//span[contains(text(),'Boards')]"), 20);
+        waitUntilElementIsVisible(By.xpath("//span[contains(text(),'Boards')]"), 20);
         Assert.assertEquals(driver.findElements(By.xpath("//span[contains(text(),'Boards')]")).get(0).getText(),
                 "Boards", "Name of the button is not 'Boards'");
 

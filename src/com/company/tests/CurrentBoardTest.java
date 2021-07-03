@@ -1,5 +1,3 @@
-package com.company.tests;
-
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
 import org.testng.Assert;
@@ -7,6 +5,8 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 import java.util.List;
+
+import static javax.swing.text.html.CSS.getAttribute;
 
 public class CurrentBoardTest extends TestBase {
 
@@ -18,7 +18,7 @@ public class CurrentBoardTest extends TestBase {
         driver.findElement(By.cssSelector(".text-primary")).click();
 
         // fill in email field
-        waitUntilElementIsClickable(By.xpath("//input[@value='Log in with Atlassian']"), 10);
+        waitUntilElementIsClickable(By.id("login"), 10);
         WebElement emailField = driver.findElement(By.id("user"));
         editField(emailField, LOGIN);
 
@@ -38,8 +38,7 @@ public class CurrentBoardTest extends TestBase {
         waitUntilElementIsClickable(By.xpath("//div[@title='QA9']"), 10);
         WebElement board = driver.findElements(By.xpath("//div[@title='QA9']")).get(0);
         board.click();
-        waitUntilElementIsClickable(By.cssSelector(".placeholder"),10);
-        waitUntilelementIsVisible(By.cssSelector(".js-list-content"), 20);
+        waitUntilElementIsClickable(By.className("placeholder"),10);
     }
 
 
@@ -71,6 +70,25 @@ public class CurrentBoardTest extends TestBase {
     @Test
     public void addNewCardTest() {
 
+        List<WebElement> list = driver.findElements(By.cssSelector(".js-list-content"));
+
+        if (list.size() == 0) {
+            // press 'Add list button'
+            WebElement openAddList = driver.findElement(By.className("placeholder"));
+            openAddList.click();
+
+            // enter name of the list
+            WebElement enterListTitle = driver.findElement(By.className("list-name-input"));
+            editField(enterListTitle, "New List");
+
+            // click 'Add list' button
+            WebElement addListButton = driver.findElement(By.cssSelector(".js-save-edit"));
+            addListButton.click();
+
+            // click 'x' button to cancel new list creating
+            WebElement closeAddAnotherList = driver.findElement(By.cssSelector(".js-cancel-edit"));
+            closeAddAnotherList.click();
+        }
         // press 'Add a card'
         WebElement addCardButton = driver.findElement(By.cssSelector(".card-composer-container"));
         addCardButton.click();
@@ -83,6 +101,49 @@ public class CurrentBoardTest extends TestBase {
 
         WebElement closeAddAnotherCard = driver.findElement(By.cssSelector(".js-cancel"));
         closeAddAnotherCard.click();
+    }
+
+    @Test
+    public void copyListTest() {
+
+        int numberOfListsBefore = driver.findElements(By.cssSelector(".js-list-content")).size();
+
+        if (numberOfListsBefore == 0) {
+            // press 'Add list button'
+            WebElement openAddList = driver.findElement(By.className("placeholder"));
+            openAddList.click();
+
+            // enter name of the list
+            WebElement enterListTitle = driver.findElement(By.className("list-name-input"));
+            editField(enterListTitle, "New List");
+
+            // click 'Add list' button
+            WebElement addListButton = driver.findElement(By.cssSelector(".js-save-edit"));
+            addListButton.click();
+
+            // click 'x' button to cancel new list creating
+            WebElement closeAddAnotherList = driver.findElement(By.cssSelector(".js-cancel-edit"));
+            closeAddAnotherList.click();
+
+            numberOfListsBefore = driver.findElements(By.cssSelector(".js-list-content")).size();
+        }
+        // click on the list menu
+        driver.findElement(By.cssSelector(".list-header-extras-menu")).click();
+
+        // click on "Copy list"
+        waitUntilElementIsClickable(By.className("js-copy-list"), 10);
+        driver.findElement(By.className("js-copy-list")).click();
+
+        //enter list title
+        waitUntilElementIsClickable(By.className("js-autofocus"), 10);
+        WebElement nameField = driver.findElement(By.className("js-autofocus"));
+        nameField.sendKeys("Changed");
+
+        //click on "Create list"
+        driver.findElement(By.cssSelector(".js-submit")).click();
+
+        int numberOfListsAfter = driver.findElements(By.cssSelector(".js-list-content")).size();
+        Assert.assertEquals(numberOfListsBefore+1, numberOfListsAfter);
     }
 
     @Test
@@ -111,9 +172,10 @@ public class CurrentBoardTest extends TestBase {
         }
 
         // click on the list menu
-        driver.findElement(By.cssSelector(".list-header-extras-menu")).click();
+        driver.findElement(By.className("list-header-extras-menu")).click();
 
         // click on "Archive this list"
+        waitUntilElementIsClickable(By.className("js-close-list"), 10);
         driver.findElement(By.className("js-close-list")).click();
 
         int numberOfListsAfter = driver.findElements(By.cssSelector(".js-list-content")).size();
@@ -121,11 +183,12 @@ public class CurrentBoardTest extends TestBase {
     }
 
     @Test
-    public void copyListTest() {
+    public void archiveNameListTest() {
 
         int numberOfListsBefore = driver.findElements(By.cssSelector(".js-list-content")).size();
+        List<WebElement> listWithName = driver.findElements(By.xpath("//*[@class='list js-list-content'][.//*[contains(.,'Other List')]]"));
+        if (listWithName.size() == 0) {
 
-        if (numberOfListsBefore == 0) {
             // press 'Add list button'
             WebElement openAddList = driver.findElement(By.className("placeholder"));
             openAddList.click();
@@ -144,21 +207,18 @@ public class CurrentBoardTest extends TestBase {
 
             numberOfListsBefore = driver.findElements(By.cssSelector(".js-list-content")).size();
         }
+        waitUntilAllElementsArePresent(By.xpath("//*[@class='list js-list-content'][.//*[contains(.,'Other List')]]"),10);
+
         // click on the list menu
-        driver.findElement(By.cssSelector(".list-header-extras-menu")).click();
+        waitUntilElementIsClickable(By.className("list-header-extras-menu"), 10);
+        driver.findElement(By.xpath("//*[@class='list js-list-content'][.//*[contains(.,'Other List')]]//*[@class='list-header-extras']")).click();
 
-        // click on "Copy list"
-        driver.findElement(By.className("js-copy-list")).click();
-
-        //enter list title
-        WebElement nameField = driver.findElement(By.className("js-autofocus"));
-        nameField.sendKeys("Changed");
-
-        //click on "Create list"
-        driver.findElement(By.cssSelector(".js-submit")).click();
+        // click on "Archive this list"
+        waitUntilElementIsClickable(By.className("js-close-list"), 10);
+        driver.findElement(By.className("js-close-list")).click();
 
         int numberOfListsAfter = driver.findElements(By.cssSelector(".js-list-content")).size();
-        Assert.assertEquals(numberOfListsBefore+1, numberOfListsAfter);
+        Assert.assertEquals(numberOfListsBefore-1, numberOfListsAfter);
     }
 }
 
