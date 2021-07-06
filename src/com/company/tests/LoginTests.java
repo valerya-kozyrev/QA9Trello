@@ -3,36 +3,31 @@ import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
+import src.com.company.pages.BoardsPageHelper;
+import src.com.company.pages.HomePageHelper;
+import src.com.company.pages.LoginPageHelper;
 
 
 public class LoginTests extends TestBase {
+    HomePageHelper homePage;
+    LoginPageHelper loginPage;
+    BoardsPageHelper boardsPage;
 
     @BeforeMethod
     public void initTest() {
-        // click on "Log in" button
-        waitUntilElementIsClickable(By.cssSelector(".text-primary"), 20);
-        driver.findElement(By.cssSelector(".text-primary")).click();
-        waitUntilElementIsClickable(By.id("login"), 10);
+        homePage = new HomePageHelper(driver);
+        loginPage = new LoginPageHelper(driver);
+        boardsPage = new BoardsPageHelper(driver);
+
+        homePage.waitUntilBeforeLoginPageIsLoaded();
+        loginPage.openPage();
+        loginPage.waitUntilLoginPageIsLoaded();
     }
 
     @Test
     public void loginNegativeTest() {
-
-        // fill in email field
-        WebElement emailField = driver.findElement(By.id("user"));
-        editField(emailField, "email");
-
-        // fill in password field
-        WebElement passwordField = driver.findElement(By.id("password"));
-        editField(passwordField, "password");
-
-        // press log in button
-        WebElement loginButton = driver.findElement(By.id("login"));
-        loginButton.click();
-
-        // output error-message
-        waitUntilElementIsVisible(By.cssSelector("p.error-message"), 10);
-        Assert.assertEquals(driver.findElements(By.cssSelector("p.error-message")).get(0).getText(),
+        loginPage.login("email","password");
+        Assert.assertEquals(loginPage.getErrorMessage(),
                 "There isn't an account for this username",
                 "The error message is not correct");
     }
@@ -40,28 +35,9 @@ public class LoginTests extends TestBase {
     @Test
     public void loginPositiveTest() {
 
-        // fill in email field
-        WebElement emailField = driver.findElement(By.id("user"));
-        editField(emailField, LOGIN);
-
-        // press 'Log in with Atlassian' button
-        waitUntilElementIsClickable(By.xpath("//input[@value='Log in with Atlassian']"), 10);
-        driver.findElement(By.id("login")).click();
-//        driver.findElement(By.xpath("//input[@value='Log in with Atlassian']")).click();
-
-        // fill in password field
-        waitUntilElementIsClickable(By.id("login-submit"), 10);
-//        waitUntilElementIsClickable(By.id("password"), 10);
-        WebElement passwordField = driver.findElement(By.id("password"));
-        editField(passwordField, PASSWORD);
-
-        // press login button
-        WebElement loginButton = driver.findElement(By.id("login-submit"));
-        loginButton.click();
-
-        //assert login
-        waitUntilElementIsVisible(By.xpath("//span[contains(text(),'Boards')]"), 20);
-        Assert.assertEquals(driver.findElements(By.xpath("//span[contains(text(),'Boards')]")).get(0).getText(),
+        loginPage.loginAtlassian(LOGIN, PASSWORD);
+        boardsPage.waitUntilBoardPageIsLoaded();
+        Assert.assertEquals(boardsPage.getBoardsButtonName(),
                 "Boards", "Name of the button is not 'Boards'");
 
     }
