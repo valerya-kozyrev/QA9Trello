@@ -33,9 +33,9 @@ public class CurrentBoardTest extends TestBase {
 
         loginPage.loginAtlassian(LOGIN, PASSWORD);
         boardsPage.waitUntilBoardPageIsLoaded();
-        currentBoard.clickOnBoardButton();
-        currentBoard.openCurrentBoard();
-
+        boardsPage.clickOnBoardButton();
+        boardsPage.openCurrentBoard();
+        currentBoard.waitUntilCurrentBoardIsLoaded();
     }
 
 
@@ -99,5 +99,59 @@ public class CurrentBoardTest extends TestBase {
         Assert.assertEquals(numberOfListsAfter,numberOfListsBefore - 1);
     }
 
+
+
+//    @Test
+//    public void archiveNameListTest() {
+//
+//        int numberOfListsBefore = currentBoard.getListSize();
+//        List<WebElement> listWithName = getNameElements(By.xpath("//*[@class='list js-list-content'][.//*[contains(.,'Other List')]]"));
+//
+//        if (listWithName.size() == 0) {
+//
+//            currentBoard.createNewList("Other List");
+//
+//            numberOfListsBefore++;
+//        }
+//        waitUntilAllElementsArePresent(By.xpath("//*[@class='list js-list-content'][.//*[contains(.,'Other List')]]"), 10);
+//
+//        // click on the list menu
+//        waitUntilElementIsClickable(By.className("list-header-extras-menu"), 10);
+//        driver.findElement(By.xpath("//*[@class='list js-list-content'][.//*[contains(.,'Other List')]]//*[@class='list-header-extras']")).click();
+//
+//        // click on "Archive this list"
+//        currentBoard.clickOnArchiveList();
+//
+//        int numberOfListsAfter = currentBoard.getListSize();
+//        Assert.assertEquals(numberOfListsAfter,numberOfListsBefore - 1);
+//    }
+//
+//    @Test
+//    public void archiveNameListTest2() {
+//
+//        int numberOfListsBefore = currentBoard.getListSize();
+//        List<WebElement> listWithName = getNameElements(By.cssSelector(".js-list-content"));
+//
+//        for (WebElement l : listWithName) {
+//
+//            if (l.findElements(By.xpath("//*[contains(@aria-label,'Other List')]")).size() == 0) {
+//
+//                currentBoard.createNewList("Other List");
+//
+//                numberOfListsBefore++;
+//            }
+//            waitUntilAllElementsArePresent(By.xpath("//*[@class='list js-list-content'][.//*[contains(.,'Other List')]]"), 10);
+//
+//            // click on the list menu
+////            waitUntilElementIsClickable(By.xpath("//*[.//*[contains(.,'Other List')]]//*[@class='list-header-extras']"), 10);//?
+//            l.findElement(By.xpath("//*[contains(@aria-label,'Other List')]//*[@class='list-header-extras']")).click();
+//
+//            // click on "Archive this list"
+//            currentBoard.clickOnArchiveList();
+//
+//            int numberOfListsAfter = currentBoard.getListSize();
+//            Assert.assertEquals(numberOfListsAfter,numberOfListsBefore - 1);
+//        }
+//    }
 }
 

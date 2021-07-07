@@ -19,18 +19,11 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="c0f8e39e-5569-4c8f-a2a0-fec6c9f9d33e" name="Default Changelist" comment="2021.07.01">
-      <change afterPath="$PROJECT_DIR$/src/com/company/pages/BoardsPageHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/pages/CurrentBoardHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/pages/HomePageHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/pages/LoginPageHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/pages/PageBase.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/com/company/tests/HomePageTests.java" afterDir="false" />
+    <list default="true" id="c0f8e39e-5569-4c8f-a2a0-fec6c9f9d33e" name="Default Changelist" comment="21.07.06 page object">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/QA9Trello.iml" beforeDir="false" afterPath="$PROJECT_DIR$/QA9Trello.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/pages/BoardsPageHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/pages/BoardsPageHelper.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/pages/CurrentBoardHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/pages/CurrentBoardHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/tests/CurrentBoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tests/CurrentBoardTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/tests/LoginTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tests/LoginTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/tests/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tests/TestBase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -193,7 +186,14 @@
       <option name="project" value="LOCAL" />
       <updated>1625309622358</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="21.07.06 page object">
+      <created>1625598325316</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1625598325316</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -211,7 +211,8 @@
   <component name="VcsManagerConfiguration">
     <MESSAGE value="2021.06.28" />
     <MESSAGE value="2021.07.01" />
-    <option name="LAST_COMMIT_MESSAGE" value="2021.07.01" />
+    <MESSAGE value="21.07.06 page object" />
+    <option name="LAST_COMMIT_MESSAGE" value="21.07.06 page object" />
   </component>
   <component name="WindowStateProjectService">
     <state x="2056" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1625309582082">
@@ -222,22 +223,22 @@
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="2106" y="274" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625590536960" />
-    <state width="1877" height="267" key="GridCell.Tab.0.bottom" timestamp="1625596747263">
+    <state width="1877" height="208" key="GridCell.Tab.0.bottom" timestamp="1625598547903">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="267" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625596747263" />
-    <state width="1877" height="267" key="GridCell.Tab.0.center" timestamp="1625596747263">
+    <state width="1877" height="208" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625598547903" />
+    <state width="1877" height="208" key="GridCell.Tab.0.center" timestamp="1625598547903">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="267" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625596747263" />
-    <state width="1877" height="267" key="GridCell.Tab.0.left" timestamp="1625596747263">
+    <state width="1877" height="208" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625598547903" />
+    <state width="1877" height="208" key="GridCell.Tab.0.left" timestamp="1625598547903">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="267" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625596747263" />
-    <state width="1877" height="267" key="GridCell.Tab.0.right" timestamp="1625596747263">
+    <state width="1877" height="208" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625598547903" />
+    <state width="1877" height="208" key="GridCell.Tab.0.right" timestamp="1625598547903">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="267" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625596747263" />
+    <state width="1877" height="208" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625598547903" />
     <state x="2141" y="453" key="ReplaceDuplicatesPrompt" timestamp="1625596283472">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
@@ -246,18 +247,18 @@
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="1806" y="94" key="SettingsEditor/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625416428405" />
-    <state x="1918" y="252" key="Vcs.Push.Dialog.v2" timestamp="1625309638388">
+    <state x="1918" y="252" key="Vcs.Push.Dialog.v2" timestamp="1625598329855">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="1918" y="252" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625309638388" />
+    <state x="1918" y="252" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625598329855" />
     <state x="2135" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1625309432522">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="2135" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625309432522" />
-    <state x="2169" y="291" key="extract.method.dialog" timestamp="1625596248805">
+    <state x="2169" y="291" key="extract.method.dialog" timestamp="1625671114138">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="2169" y="291" key="extract.method.dialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625596248805" />
+    <state x="2169" y="291" key="extract.method.dialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625671114138" />
     <state x="2032" y="253" width="587" height="534" key="find.popup" timestamp="1625417094291">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
