@@ -20,10 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c0f8e39e-5569-4c8f-a2a0-fec6c9f9d33e" name="Default Changelist" comment="21.07.06 page object">
+      <change afterPath="$PROJECT_DIR$/src/com/company/pages/MenuPageHelper.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/tests/MenuPageTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/pages/BoardsPageHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/pages/BoardsPageHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/pages/CurrentBoardHelper.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/pages/CurrentBoardHelper.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/tests/CurrentBoardTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tests/CurrentBoardTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/tests/TestBase.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/tests/TestBase.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -50,7 +52,7 @@
   <component name="PropertiesComponent">
     <property name="extract.method.default.visibility" value="public" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/com/company/tests" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../21.06.20_Lesson_6" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../21.06.06_Lesson_2" />
     <property name="project.structure.last.edited" value="Modules" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -70,12 +72,12 @@
       <recent name="C:\Users\User\IdeaProjects\QA9Trello\src\tests" />
     </key>
   </component>
-  <component name="RunManager" selected="TestNG.&lt;default&gt;">
-    <configuration name="CurrentBoardTest.addNewCardTest" type="TestNG" temporary="true" nameIsGenerated="true">
+  <component name="RunManager" selected="TestNG.MenuPageTests.verifyAddNewListTest">
+    <configuration name="CurrentBoardTest.archiveNameListTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA9Trello" />
       <option name="PACKAGE_NAME" value="" />
       <option name="MAIN_CLASS_NAME" value="CurrentBoardTest" />
-      <option name="METHOD_NAME" value="addNewCardTest" />
+      <option name="METHOD_NAME" value="archiveNameListTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -83,11 +85,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CurrentBoardTest.archiveListTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="MenuPageTests.profileVisibilityMenuExistsTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA9Trello" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CurrentBoardTest" />
-      <option name="METHOD_NAME" value="archiveListTest" />
+      <option name="MAIN_CLASS_NAME" value="MenuPageTests" />
+      <option name="METHOD_NAME" value="profileVisibilityMenuExistsTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -95,11 +97,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CurrentBoardTest.copyListTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="MenuPageTests.verifyAddNewListTest (1)" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA9Trello" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CurrentBoardTest" />
-      <option name="METHOD_NAME" value="copyListTest" />
+      <option name="MAIN_CLASS_NAME" value="MenuPageTests" />
+      <option name="METHOD_NAME" value="verifyAddNewListTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -107,11 +109,11 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="CurrentBoardTest.createNewListTest" type="TestNG" temporary="true" nameIsGenerated="true">
+    <configuration name="MenuPageTests.verifyAddNewListTest" type="TestNG" temporary="true" nameIsGenerated="true">
       <module name="QA9Trello" />
       <option name="PACKAGE_NAME" value="" />
-      <option name="MAIN_CLASS_NAME" value="CurrentBoardTest" />
-      <option name="METHOD_NAME" value="createNewListTest" />
+      <option name="MAIN_CLASS_NAME" value="MenuPageTests" />
+      <option name="METHOD_NAME" value="verifyAddNewListTest" />
       <option name="TEST_OBJECT" value="METHOD" />
       <properties />
       <listeners />
@@ -130,19 +132,19 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="TestNG.CurrentBoardTest.createNewListTest" />
-      <item itemvalue="TestNG.CurrentBoardTest.addNewCardTest" />
-      <item itemvalue="TestNG.CurrentBoardTest.copyListTest" />
-      <item itemvalue="TestNG.CurrentBoardTest.archiveListTest" />
+      <item itemvalue="TestNG.CurrentBoardTest.archiveNameListTest" />
+      <item itemvalue="TestNG.MenuPageTests.profileVisibilityMenuExistsTest" />
+      <item itemvalue="TestNG.MenuPageTests.verifyAddNewListTest (1)" />
+      <item itemvalue="TestNG.MenuPageTests.verifyAddNewListTest" />
       <item itemvalue="TestNG.&lt;default&gt;" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="TestNG.MenuPageTests.verifyAddNewListTest" />
+        <item itemvalue="TestNG.MenuPageTests.verifyAddNewListTest (1)" />
+        <item itemvalue="TestNG.MenuPageTests.profileVisibilityMenuExistsTest" />
+        <item itemvalue="TestNG.CurrentBoardTest.archiveNameListTest" />
         <item itemvalue="TestNG.&lt;default&gt;" />
-        <item itemvalue="TestNG.CurrentBoardTest.addNewCardTest" />
-        <item itemvalue="TestNG.CurrentBoardTest.archiveListTest" />
-        <item itemvalue="TestNG.CurrentBoardTest.copyListTest" />
-        <item itemvalue="TestNG.CurrentBoardTest.createNewListTest" />
       </list>
     </recent_temporary>
   </component>
@@ -193,7 +195,21 @@
       <option name="project" value="LOCAL" />
       <updated>1625598325316</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="21.07.06 page object">
+      <created>1625672287768</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1625672287769</updated>
+    </task>
+    <task id="LOCAL-00007" summary="21.07.06 page object">
+      <created>1625672343962</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1625672343962</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -215,30 +231,34 @@
     <option name="LAST_COMMIT_MESSAGE" value="21.07.06 page object" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="1458" y="92" width="1736" height="856" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog" timestamp="1625756960983">
+      <screen x="1366" y="0" width="1920" height="1040" />
+    </state>
+    <state x="1458" y="92" width="1736" height="856" key="#com.intellij.execution.junit2.states.ComparisonFailureState$DiffDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625756960983" />
     <state x="2056" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1625309582082">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="2056" y="266" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625309582081" />
-    <state x="2106" y="274" key="FileChooserDialogImpl" timestamp="1625590536960">
+    <state x="2106" y="274" key="FileChooserDialogImpl" timestamp="1625758654160">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="2106" y="274" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625590536960" />
-    <state width="1877" height="208" key="GridCell.Tab.0.bottom" timestamp="1625598547903">
+    <state x="2106" y="274" key="FileChooserDialogImpl/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625758654160" />
+    <state width="1877" height="208" key="GridCell.Tab.0.bottom" timestamp="1625761039822">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="208" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625598547903" />
-    <state width="1877" height="208" key="GridCell.Tab.0.center" timestamp="1625598547903">
+    <state width="1877" height="208" key="GridCell.Tab.0.bottom/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625761039822" />
+    <state width="1877" height="208" key="GridCell.Tab.0.center" timestamp="1625761039822">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="208" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625598547903" />
-    <state width="1877" height="208" key="GridCell.Tab.0.left" timestamp="1625598547903">
+    <state width="1877" height="208" key="GridCell.Tab.0.center/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625761039822" />
+    <state width="1877" height="208" key="GridCell.Tab.0.left" timestamp="1625761039822">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="208" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625598547903" />
-    <state width="1877" height="208" key="GridCell.Tab.0.right" timestamp="1625598547903">
+    <state width="1877" height="208" key="GridCell.Tab.0.left/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625761039822" />
+    <state width="1877" height="208" key="GridCell.Tab.0.right" timestamp="1625761039822">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state width="1877" height="208" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625598547903" />
+    <state width="1877" height="208" key="GridCell.Tab.0.right/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625761039822" />
     <state x="2141" y="453" key="ReplaceDuplicatesPrompt" timestamp="1625596283472">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
@@ -247,18 +267,18 @@
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="1806" y="94" key="SettingsEditor/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625416428405" />
-    <state x="1918" y="252" key="Vcs.Push.Dialog.v2" timestamp="1625598329855">
+    <state x="1918" y="252" key="Vcs.Push.Dialog.v2" timestamp="1625672347419">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="1918" y="252" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625598329855" />
+    <state x="1918" y="252" key="Vcs.Push.Dialog.v2/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625672347419" />
     <state x="2135" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1625309432522">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
     <state x="2135" y="433" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625309432522" />
-    <state x="2169" y="291" key="extract.method.dialog" timestamp="1625671114138">
+    <state x="2169" y="291" key="extract.method.dialog" timestamp="1625757696639">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>
-    <state x="2169" y="291" key="extract.method.dialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625671114138" />
+    <state x="2169" y="291" key="extract.method.dialog/0.0.1366.728/1366.0.1920.1040@1366.0.1920.1040" timestamp="1625757696639" />
     <state x="2032" y="253" width="587" height="534" key="find.popup" timestamp="1625417094291">
       <screen x="1366" y="0" width="1920" height="1040" />
     </state>

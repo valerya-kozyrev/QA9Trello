@@ -17,7 +17,7 @@ public class CurrentBoardTest extends TestBase {
     HomePageHelper homePage;
     LoginPageHelper loginPage;
     BoardsPageHelper boardsPage;
-    CurrentBoardHelper currentBoard;
+    CurrentBoardHelper qa9Board;
 
     @BeforeMethod
     public void initTest() {
@@ -25,7 +25,7 @@ public class CurrentBoardTest extends TestBase {
         homePage = new HomePageHelper(driver);
         loginPage = new LoginPageHelper(driver);
         boardsPage = new BoardsPageHelper(driver);
-        currentBoard = new CurrentBoardHelper(driver);
+        qa9Board = new CurrentBoardHelper(driver, "QA9");
 
         homePage.waitUntilBeforeLoginPageIsLoaded();
         loginPage.openPage();
@@ -35,69 +35,106 @@ public class CurrentBoardTest extends TestBase {
         boardsPage.waitUntilBoardPageIsLoaded();
         boardsPage.clickOnBoardButton();
         boardsPage.openCurrentBoard();
-        currentBoard.waitUntilCurrentBoardIsLoaded();
+        qa9Board.waitUntilCurrentBoardIsLoaded();
     }
-
 
     @Test
     public void addNewListTest() {
 
-        int numberOfListsBefore = currentBoard.getListSize();
+        int numberOfListsBefore = qa9Board.getListSize();
 
-        currentBoard.createNewList("New List");
+        qa9Board.createNewList("New List");
 
-        int numberOfListsAfter = currentBoard.getListSize();
+        int numberOfListsAfter = qa9Board.getListSize();
         Assert.assertEquals(numberOfListsAfter,numberOfListsBefore + 1);
     }
-
 
     @Test
     public void addNewCardTest() {
 
-        int numberOfCardsBefore = currentBoard.getCardSize();
-        List<WebElement> list = currentBoard.getNameElements(By.cssSelector(".js-list-content"));
+        int numberOfCardsBefore = qa9Board.getCardSize();
+        List<WebElement> list = qa9Board.getNameElements(By.cssSelector(".js-list-content"));
 
         if (list.size() == 0) {
-            currentBoard.createNewList("New List");
+            qa9Board.createNewList("New List");
         }
-        currentBoard.createNewCard();
-        int numberOfCardsAfter = currentBoard.getCardSize();
+        qa9Board.createNewCard();
+        int numberOfCardsAfter = qa9Board.getCardSize();
         Assert.assertEquals(numberOfCardsAfter,numberOfCardsBefore + 1);
     }
-
 
     @Test
     public void copyListTest() {
 
-        int numberOfListsBefore = currentBoard.getListSize();
+        int numberOfListsBefore = qa9Board.getListSize();
 
         if (numberOfListsBefore == 0) {
-            currentBoard.createNewList("New List");
+            qa9Board.createNewList("New List");
 
             numberOfListsBefore++;
         }
-        currentBoard.copyList("Changed");
+        qa9Board.copyList("Changed");
 
-        int numberOfListsAfter = currentBoard.getListSize();
+        int numberOfListsAfter = qa9Board.getListSize();
         Assert.assertEquals(numberOfListsAfter,numberOfListsBefore + 1);
     }
-
 
     @Test
     public void archiveListTest() {
 
-        int numberOfListsBefore = currentBoard.getListSize();
+        int numberOfListsBefore = qa9Board.getListSize();
 
         if (numberOfListsBefore == 0) {
-            currentBoard.createNewList("Other List");
+            qa9Board.createNewList("Other List");
 
             numberOfListsBefore++;
         }
-        currentBoard.archiveList();
+        qa9Board.archiveList();
 
-        int numberOfListsAfter = currentBoard.getListSize();
+        int numberOfListsAfter = qa9Board.getListSize();
         Assert.assertEquals(numberOfListsAfter,numberOfListsBefore - 1);
     }
 
+    @Test
+    public void archiveNameListTest() {
+        String nameList = "add";
+        int numberOfListsBefore = qa9Board.getListSize();
+        int number = qa9Board.getNumberOfElementWithName(nameList);
+        if (number == -1) {
+            qa9Board.createNewList("add");
+
+            number = numberOfListsBefore;
+            numberOfListsBefore++;
+        }
+        qa9Board.archiveNameList(number);
+
+        int numberOfListsAfter = qa9Board.getListSize();
+        Assert.assertEquals(numberOfListsAfter,numberOfListsBefore - 1);
+    }
 }
+
+//    @Test
+//    public void archiveNameListTest() {
+//
+//        int numberOfListsBefore = currentBoard.getListSize();
+//        List<WebElement> listWithName = getNameElements(By.xpath("//*[@class='list js-list-content'][.//*[contains(.,'Other List')]]"));
+//
+//        if (listWithName.size() == 0) {
+//
+//            currentBoard.createNewList("Other List");
+//
+//            numberOfListsBefore++;
+//        }
+//        waitUntilAllElementsArePresent(By.xpath("//*[@class='list js-list-content'][.//*[contains(.,'Other List')]]"), 10);
+//
+//        // click on the list menu
+//        waitUntilElementIsClickable(By.className("list-header-extras-menu"), 10);
+//        driver.findElement(By.xpath("//*[@class='list js-list-content'][.//*[contains(.,'Other List')]]//*[@class='list-header-extras']")).click();
+//
+//        // click on "Archive this list"
+//        currentBoard.clickOnArchiveList();
+//
+//        int numberOfListsAfter = currentBoard.getListSize();
+//        Assert.assertEquals(numberOfListsAfter,numberOfListsBefore - 1);
+//    }
 
