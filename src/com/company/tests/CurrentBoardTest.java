@@ -1,5 +1,6 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
@@ -14,85 +15,59 @@ import static javax.swing.text.html.CSS.getAttribute;
 
 public class CurrentBoardTest extends TestBase {
 
-    HomePageHelper homePage;
     LoginPageHelper loginPage;
     BoardsPageHelper boardsPage;
     CurrentBoardHelper qa9Board;
 
     @BeforeMethod
     public void initTest() {
-
-        homePage = new HomePageHelper(driver);
-        loginPage = new LoginPageHelper(driver);
-        boardsPage = new BoardsPageHelper(driver);
+        loginPage = PageFactory.initElements(driver, LoginPageHelper.class);
+        boardsPage = PageFactory.initElements(driver, BoardsPageHelper.class);
         qa9Board = new CurrentBoardHelper(driver, "QA9");
 
-        homePage.waitUntilBeforeLoginPageIsLoaded();
-        loginPage.openPage();
-        loginPage.waitUntilLoginPageIsLoaded();
-
-        loginPage.loginAtlassian(LOGIN, PASSWORD);
-        boardsPage.waitUntilBoardPageIsLoaded();
-        boardsPage.clickOnBoardButton();
-        boardsPage.openCurrentBoard();
-        qa9Board.waitUntilCurrentBoardIsLoaded();
+        loginPage
+                .openPage()
+                .waitUntilLoginPageIsLoaded()
+                .loginAtlassian(LOGIN, PASSWORD);
+        boardsPage
+                .waitUntilBoardPageIsLoaded()
+                .openBoardsMenu();
+        qa9Board
+                .openPage()
+                .waitUntilCurrentBoardIsLoaded();
     }
 
     @Test
     public void addNewListTest() {
-
         int numberOfListsBefore = qa9Board.getListSize();
-
         qa9Board.createNewList("New List");
-
         int numberOfListsAfter = qa9Board.getListSize();
-        Assert.assertEquals(numberOfListsAfter,numberOfListsBefore + 1);
+        Assert.assertEquals(numberOfListsAfter, numberOfListsBefore + 1);
     }
 
     @Test
     public void addNewCardTest() {
-
+        qa9Board.getNumberOfListsBefore("New Card List");
         int numberOfCardsBefore = qa9Board.getCardSize();
-        List<WebElement> list = qa9Board.getNameElements(By.cssSelector(".js-list-content"));
-
-        if (list.size() == 0) {
-            qa9Board.createNewList("New List");
-        }
         qa9Board.createNewCard();
         int numberOfCardsAfter = qa9Board.getCardSize();
-        Assert.assertEquals(numberOfCardsAfter,numberOfCardsBefore + 1);
+        Assert.assertEquals(numberOfCardsAfter, numberOfCardsBefore + 1);
     }
 
     @Test
     public void copyListTest() {
-
-        int numberOfListsBefore = qa9Board.getListSize();
-
-        if (numberOfListsBefore == 0) {
-            qa9Board.createNewList("New List");
-
-            numberOfListsBefore++;
-        }
+        int numberOfListsBefore = qa9Board.getNumberOfListsBefore("New List");
         qa9Board.copyList("Changed");
-
         int numberOfListsAfter = qa9Board.getListSize();
-        Assert.assertEquals(numberOfListsAfter,numberOfListsBefore + 1);
+        Assert.assertEquals(numberOfListsAfter, numberOfListsBefore + 1);
     }
 
     @Test
     public void archiveListTest() {
-
-        int numberOfListsBefore = qa9Board.getListSize();
-
-        if (numberOfListsBefore == 0) {
-            qa9Board.createNewList("Other List");
-
-            numberOfListsBefore++;
-        }
+        int numberOfListsBefore = qa9Board.getNumberOfListsBefore("Other List");
         qa9Board.archiveList();
-
         int numberOfListsAfter = qa9Board.getListSize();
-        Assert.assertEquals(numberOfListsAfter,numberOfListsBefore - 1);
+        Assert.assertEquals(numberOfListsAfter, numberOfListsBefore - 1);
     }
 
     @Test
@@ -102,14 +77,12 @@ public class CurrentBoardTest extends TestBase {
         int number = qa9Board.getNumberOfElementWithName(nameList);
         if (number == -1) {
             qa9Board.createNewList("add");
-
             number = numberOfListsBefore;
             numberOfListsBefore++;
         }
         qa9Board.archiveNameList(number);
-
         int numberOfListsAfter = qa9Board.getListSize();
-        Assert.assertEquals(numberOfListsAfter,numberOfListsBefore - 1);
+        Assert.assertEquals(numberOfListsAfter, numberOfListsBefore - 1);
     }
 }
 

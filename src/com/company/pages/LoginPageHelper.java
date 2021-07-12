@@ -3,23 +3,39 @@ package src.com.company.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
 import org.testng.Assert;
 
 public class LoginPageHelper extends PageBase{
+
+    @FindBy(css=".text-primary")
+    WebElement loginIcon;
+    @FindBy(id="login")
+    WebElement loginButton;
+    @FindBy(id="user")
+    WebElement emailField;
+    @FindBy(id="password")
+    WebElement passwordField;
+    @FindBy(xpath = "//input[@value='Log in with Atlassian']")
+    WebElement loginWithAtlassianButton;
+    @FindBy(id="login-submit")
+    WebElement submitLoginWithAtlassianButton;
+    @FindBy(css="p.error-message")
+    WebElement errorMessage;
 
     public LoginPageHelper(WebDriver driver){
         this.driver = driver;
     }
 
-    public void openPage() {
-        // click on "Log in" button
-        waitUntilElementIsClickable(By.cssSelector(".text-primary"), 20);
-        driver.findElement(By.cssSelector(".text-primary")).click();
+    public LoginPageHelper openPage() {
+        waitUntilElementIsClickable(loginIcon, 20);
+        loginIcon.click();
+        return this;
     }
 
-    public void waitUntilLoginPageIsLoaded(){
-
-        waitUntilElementIsClickable(By.id("login"), 10);
+    public LoginPageHelper waitUntilLoginPageIsLoaded(){
+        waitUntilElementIsClickable(loginButton, 10);
+        return this;
     }
 
     public void login(String login, String password) {
@@ -36,50 +52,38 @@ public class LoginPageHelper extends PageBase{
     }
 
     public void fillInEmailField(String value) {
-        // fill in email field
-        waitUntilElementIsClickable(By.id("login"), 20);
-        WebElement emailField = driver.findElement(By.id("user"));
+        waitUntilElementIsClickable(loginButton, 20);
         editField(emailField, value);
     }
 
     public void fillInPasswordField(String value) {
-        // fill in password field
-        waitUntilElementIsClickable(By.id("password"), 20);
-        WebElement passwordField = driver.findElement(By.id("password"));
+        waitUntilElementIsClickable(passwordField, 20);
         editField(passwordField, value);
     }
 
     public void submitLogin() {
-        // press log in button
-        waitUntilElementIsClickable(By.id("login"), 20);
-        WebElement loginButton = driver.findElement(By.id("login"));
+        waitUntilElementIsClickable(loginButton, 20);
         loginButton.click();
     }
 
     public void submitLoginAtlassian() {
-        // press 'Log in with Atlassian' button
-        waitUntilElementIsClickable(By.xpath("//input[@value='Log in with Atlassian']"), 10);
-        driver.findElement(By.id("login")).click();
+        waitUntilElementIsClickable(loginWithAtlassianButton, 10);
+        loginWithAtlassianButton.click();
     }
 
     public void fillInPasswordAtlassianField(String value) {
-        // fill in password field
-        waitUntilElementIsClickable(By.id("password"), 20);
-        WebElement passwordField = driver.findElement(By.id("password"));
+        waitUntilElementIsClickable(passwordField, 20);
         editField(passwordField, value);
     }
 
     public void submitPasswordAtlassian() {
-        // press log in button
-        waitUntilElementIsClickable(By.id("login-submit"), 20);
-        WebElement loginButton = driver.findElement(By.id("login-submit"));
-        loginButton.click();
+        waitUntilElementIsClickable(submitLoginWithAtlassianButton, 20);
+        submitLoginWithAtlassianButton.click();
     }
 
     public String getErrorMessage(){
-        // output error-message
-        waitUntilElementIsVisible(By.cssSelector("p.error-message"), 10);
-        return driver.findElement(By.cssSelector("p.error-message")).getText();
+        waitUntilElementIsVisible(errorMessage, 10);
+        return errorMessage.getText();
     }
 
 }

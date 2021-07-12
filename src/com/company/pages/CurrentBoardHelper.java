@@ -3,38 +3,90 @@ package src.com.company.pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.FindBy;
+import org.openqa.selenium.support.PageFactory;
 import src.com.company.pages.PageBase;
 
 import java.util.List;
 
 public class CurrentBoardHelper extends PageBase {
+
     String boardName;
+
+    @FindBy(xpath = "//a[@class = 'board-tile'][.//div[@title='QA9']]")
+    WebElement qa9Board;
+    @FindBy(css=".placeholder")
+    WebElement addAnotherListElement;
+    @FindBy(css=".js-list-content")
+    List<WebElement> listOfLists;
+    @FindBy(css=".list-card-title")
+    List<WebElement> listOfCards;
+    @FindBy(className = "list-name-input")
+    WebElement titleListField;
+    @FindBy(css = ".js-save-edit")
+    WebElement addListButton;
+    @FindBy(css=".js-cancel-edit")
+    WebElement cancelAddAnotherList;
+    @FindBy(css=".card-composer-container")
+    WebElement addACardButton;
+    @FindBy(css=".js-card-title")
+    WebElement cardTitleField;
+    @FindBy(css=".js-add-card")
+    WebElement addCardButton;
+    @FindBy(css=".js-cancel")
+    WebElement cancelAddAnotherCard;
+    @FindBy(css=".list-header-extras-menu")
+    WebElement listMenuButton;
+    @FindBy(css=".js-copy-list")
+    WebElement copyListButton;
+    @FindBy(css=".js-autofocus")
+    WebElement copiedListTitleField;
+    @FindBy(css=".js-submit")
+    WebElement createCopiedListButton;
+    @FindBy(className="js-close-list")
+    WebElement archieveThisListButton;
+    @FindBy(css=".list-header-name")
+    List<WebElement> listName;
 
     public CurrentBoardHelper(WebDriver driver, String boardName) {
 
         this.driver = driver;
         this.boardName = boardName;
+        PageFactory.initElements(driver,this);
     }
 
     public By getLocatorBoardButton() {
         return By.xpath("//a[@class = 'board-tile'][.//div[@title='" + boardName + "']]");
     }
+    public CurrentBoardHelper openPage() {
+        waitUntilElementIsClickable(getLocatorBoardButton(),10);
+        WebElement qa9Board = driver.findElement(getLocatorBoardButton());
+        qa9Board.click();
+        return this;
+    }
 
     public void waitUntilCurrentBoardIsLoaded() {
-        waitUntilElementIsClickable(By.cssSelector(".placeholder"), 10);
-        WebElement addButton = driver.findElement(By.cssSelector(".placeholder"));
-
-        if (addButton.getText().equals("Add another list")) {
-            waitUntilAllElementsArePresent(By.cssSelector(".js-list-content"), 5);
+        waitUntilElementIsClickable(addAnotherListElement, 10);
+        if (addAnotherListElement.getText().equals("Add another list")) {
+            waitUntilAllElementsAreVisible(listOfLists, 5);
         }
     }
 
-    public int getListSize() {
-        return driver.findElements(By.cssSelector(".js-list-content")).size();
+    public int getListSize(){
+        return listOfLists.size();
     }
 
-    public int getCardSize() {
-        return driver.findElements(By.cssSelector(".list-card-title")).size();
+    public int getCardSize(){
+        return listOfCards.size();
+    }
+
+    public int getNumberOfListsBefore(String s) {
+        int numberOfListsBefore = getListSize();
+        if (numberOfListsBefore == 0) {
+            createNewList(s);
+            numberOfListsBefore++;
+        }
+        return numberOfListsBefore;
     }
 
 //  create new list
@@ -43,34 +95,25 @@ public class CurrentBoardHelper extends PageBase {
         openAddList();
         enterListName(s);
         clickAddListButton();
-        waitUntilElementsBecome(By.cssSelector(".js-list-content"),beginListsQuantity+1,10);
-//        System.out.println("After adding: " + this.getListSize());
+        waitUntilElementsBecome(listOfLists,beginListsQuantity+1,10);
         closeAnotherAddList();
     }
 
     public void openAddList() {
-        // press 'Add list button'
-        WebElement openAddList = driver.findElement(By.className("placeholder"));
-        openAddList.click();
+        addAnotherListElement.click();
     }
 
     public void enterListName(String name) {
-        // enter name of the list
-        WebElement enterListTitle = driver.findElement(By.className("list-name-input"));
-        editField(enterListTitle, name);
+        editField(titleListField, name);
     }
 
     public void clickAddListButton() {
-        // click 'Add list' button
-        WebElement addListButton = driver.findElement(By.cssSelector(".js-save-edit"));
         addListButton.click();
     }
 
     public void closeAnotherAddList() {
-        // click 'x' button to cancel new list creating
-        waitUntilElementIsClickable(By.cssSelector(".js-cancel-edit"),5);
-        WebElement closeAddAnotherList = driver.findElement(By.cssSelector(".js-cancel-edit"));
-        closeAddAnotherList.click();
+        waitUntilElementIsClickable(cancelAddAnotherList,5);
+        cancelAddAnotherList.click();
     }
 
 //  create new card
@@ -79,31 +122,25 @@ public class CurrentBoardHelper extends PageBase {
         addNewCard();
         enterCardName("card tile");
         clickAddCardButton();
-        waitUntilElementsBecome(By.cssSelector(".list-card-title"),beginCards+1,10);
+        waitUntilElementsBecome(listOfLists,beginCards+1,10);
         cancelAnotherCard();
     }
 
     public void addNewCard() {
-        // press 'Add a card'
-        WebElement addCardButton = driver.findElement(By.cssSelector(".card-composer-container"));
-        addCardButton.click();
+        addACardButton.click();
     }
 
     public void enterCardName(String s) {
-        // fill in card title
-        WebElement cardTitleField = driver.findElement(By.cssSelector(".js-card-title"));
         editField(cardTitleField, s);
     }
 
     public void clickAddCardButton() {
-        WebElement addCardButton = driver.findElement(By.cssSelector(".js-add-card"));
         addCardButton.click();
     }
 
     public void cancelAnotherCard() {
-        waitUntilElementIsClickable(By.cssSelector(".js-cancel"),5);
-        WebElement closeAddAnotherCard = driver.findElement(By.cssSelector(".js-cancel"));
-        closeAddAnotherCard.click();
+        waitUntilElementIsClickable(cancelAddAnotherCard,5);
+        cancelAddAnotherCard.click();
     }
 
 //  copy
@@ -113,32 +150,26 @@ public class CurrentBoardHelper extends PageBase {
         clickOnCopyList();
         enterCopiedListName("Changed");
         clickOnCreateList();
-        waitUntilElementsBecome(By.cssSelector(".js-list-content"),beginListsQuantity+1,10);
+        waitUntilElementsBecome(listOfLists,beginListsQuantity+1,10);
     }
 
     public void clickOnExtraMenuButton() {
-        // click on the list menu
-        waitUntilElementIsClickable(By.cssSelector(".list-header-extras-menu"),5);
-        WebElement extraMenu = driver.findElement(By.cssSelector(".list-header-extras-menu"));
-        extraMenu.click();
+        waitUntilElementIsClickable(listMenuButton,5);
+        listMenuButton.click();
     }
 
     public void clickOnCopyList() {
-        // click on "Copy list"
-        waitUntilElementIsClickable(By.className("js-copy-list"), 10);
-        driver.findElement(By.className("js-copy-list")).click();
+        waitUntilElementIsClickable(copyListButton, 10);
+        copyListButton.click();
     }
 
     public void enterCopiedListName(String s) {
-        //enter list title
-        waitUntilElementIsClickable(By.className("js-autofocus"), 10);
-        WebElement nameField = driver.findElement(By.className("js-autofocus"));
-        nameField.sendKeys(s);
+        waitUntilElementIsClickable(copiedListTitleField, 10);
+        copiedListTitleField.sendKeys(s);
     }
 
     public void clickOnCreateList() {
-        //click on "Create list"
-        driver.findElement(By.cssSelector(".js-submit")).click();
+        createCopiedListButton.click();
     }
 
 //  delete
@@ -146,13 +177,12 @@ public class CurrentBoardHelper extends PageBase {
         int beginListsQuantity = this.getListSize();
         clickOnExtraMenuButton();
         clickOnArchiveList();
-        waitUntilElementsBecome(By.cssSelector(".js-list-content"),beginListsQuantity-1,10);
+        waitUntilElementsBecome(listOfLists,beginListsQuantity-1,10);
     }
 
     public void clickOnArchiveList() {
-        // click on "Archive this list"
-        waitUntilElementIsClickable(By.className("js-close-list"), 10);
-        driver.findElement(By.className("js-close-list")).click();
+        waitUntilElementIsClickable(archieveThisListButton, 10);
+        archieveThisListButton.click();
     }
 
     public List<WebElement> getNameElements(By xpath) {
@@ -163,19 +193,18 @@ public class CurrentBoardHelper extends PageBase {
         int beginLists = this.getListSize();
         clickOnExtraMenuButtonAccordingName(number);
         clickOnArchiveList();
-        waitUntilElementsBecome(By.cssSelector(".js-list-content"),beginLists-1,5);
+        waitUntilElementsBecome(listOfLists,beginLists-1,5);
     }
 
     public void clickOnExtraMenuButtonAccordingName(int number) {
-        // click on the list menu
-        waitUntilElementIsClickable(By.cssSelector(".list-header-extras-menu"),5);
+        waitUntilElementIsClickable(listMenuButton,5);
         driver.findElements(By.cssSelector(".list-header-extras-menu")).get(number).click();
     }
 
     public int getNumberOfElementWithName(String nameList) { //if there's no list with this name we'll get -1
         int number = -1;
         int counter = 0;
-        for(WebElement element: driver.findElements(By.cssSelector(".list-header-name"))){
+        for(WebElement element: listName){
             if(element.getText().equals(nameList)){
                 number = counter;
             }
