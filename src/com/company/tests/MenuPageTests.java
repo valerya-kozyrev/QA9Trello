@@ -7,8 +7,6 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import src.com.company.pages.*;
 
-import java.util.List;
-
 public class MenuPageTests extends TestBase {
     LoginPageHelper loginPage;
     BoardsPageHelper boardsPage;
@@ -22,6 +20,7 @@ public class MenuPageTests extends TestBase {
         qa9Board = new CurrentBoardHelper(driver, "QA9");
         menuPage = PageFactory.initElements(driver, MenuPageHelper.class);
 
+        homePage.waitUntilBeforeLoginPageIsLoaded();
         loginPage
                 .openPage()
                 .waitUntilLoginPageIsLoaded()
@@ -40,21 +39,5 @@ public class MenuPageTests extends TestBase {
     @Test
     public void profileVisibilityMenuExistsTest() {
         Assert.assertEquals(menuPage.getProfileVisibilityMenuName(), "Profile and visibility");
-    }
-
-    @Test
-    public void verifyAddNewListTest() {
-        menuPage.clickActivityButton();
-        int sizeActivityBefore = menuPage.getActivityListSize();
-        menuPage.returnToPreviousPage();
-        qa9Board.createNewList("Activity List");
-        menuPage.openMenuPage();
-        menuPage.waitUntilPageIsLoaded();
-        menuPage.openActivityList();
-        int sizeActivityListAfter = menuPage.getActivityListSize();
-        Assert.assertEquals(sizeActivityListAfter, sizeActivityBefore + 1);
-        Assert.assertEquals(menuPage.findLastActivityText(),
-                driver.findElement(By.xpath("//div[@class='phenom mod-attachment-type'][1]")).getText(),
-                "Wrong activity");
     }
 }

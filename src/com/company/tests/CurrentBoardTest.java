@@ -56,7 +56,7 @@ public class CurrentBoardTest extends TestBase {
 
     @Test
     public void copyListTest() {
-        int numberOfListsBefore = qa9Board.getNumberOfListsBefore("New List");
+        int numberOfListsBefore = qa9Board.getNumberOfListsBefore("Copy List");
         qa9Board.copyList("Changed");
         int numberOfListsAfter = qa9Board.getListSize();
         Assert.assertEquals(numberOfListsAfter, numberOfListsBefore + 1);
@@ -64,7 +64,7 @@ public class CurrentBoardTest extends TestBase {
 
     @Test
     public void archiveListTest() {
-        int numberOfListsBefore = qa9Board.getNumberOfListsBefore("Other List");
+        int numberOfListsBefore = qa9Board.getNumberOfListsBefore("Archieve List");
         qa9Board.archiveList();
         int numberOfListsAfter = qa9Board.getListSize();
         Assert.assertEquals(numberOfListsAfter, numberOfListsBefore - 1);
@@ -72,11 +72,11 @@ public class CurrentBoardTest extends TestBase {
 
     @Test
     public void archiveNameListTest() {
-        String nameList = "add";
+        String nameList = "Archieve Name List";
         int numberOfListsBefore = qa9Board.getListSize();
         int number = qa9Board.getNumberOfElementWithName(nameList);
         if (number == -1) {
-            qa9Board.createNewList("add");
+            qa9Board.createNewList("Archieve Name List");
             number = numberOfListsBefore;
             numberOfListsBefore++;
         }
@@ -84,30 +84,48 @@ public class CurrentBoardTest extends TestBase {
         int numberOfListsAfter = qa9Board.getListSize();
         Assert.assertEquals(numberOfListsAfter, numberOfListsBefore - 1);
     }
-}
 
-//    @Test
-//    public void archiveNameListTest() {
-//
-//        int numberOfListsBefore = currentBoard.getListSize();
-//        List<WebElement> listWithName = getNameElements(By.xpath("//*[@class='list js-list-content'][.//*[contains(.,'Other List')]]"));
-//
-//        if (listWithName.size() == 0) {
-//
-//            currentBoard.createNewList("Other List");
-//
-//            numberOfListsBefore++;
-//        }
-//        waitUntilAllElementsArePresent(By.xpath("//*[@class='list js-list-content'][.//*[contains(.,'Other List')]]"), 10);
-//
-//        // click on the list menu
-//        waitUntilElementIsClickable(By.className("list-header-extras-menu"), 10);
-//        driver.findElement(By.xpath("//*[@class='list js-list-content'][.//*[contains(.,'Other List')]]//*[@class='list-header-extras']")).click();
-//
-//        // click on "Archive this list"
-//        currentBoard.clickOnArchiveList();
-//
-//        int numberOfListsAfter = currentBoard.getListSize();
-//        Assert.assertEquals(numberOfListsAfter,numberOfListsBefore - 1);
-//    }
+
+    @Test
+    public void archiveNameListTest1() {
+        int numberOfListsBefore = qa9Board.getListSize();
+        if (qa9Board.getNameListSize() == 0) {
+
+            qa9Board.createNewList("Other List");
+
+            numberOfListsBefore++;
+        }
+//        qa9Board.getNumberOfListsBefore1("Other List");
+        qa9Board.archiveNameList1("Other List");
+        int numberOfListsAfter = qa9Board.getListSize();
+        Assert.assertEquals(numberOfListsAfter, numberOfListsBefore - 1);
+    }
+}
+/*
+    @Test
+    public void archiveNameListTest1() {
+
+        int numberOfListsBefore = qa9Board.getListSize();
+        List<WebElement> listWithName = qa9Board.getNameElements(By.xpath("//*[@class='list js-list-content'][.//*[contains(.,'Other List')]]"));
+
+        if (listWithName.size() == 0) {
+
+            qa9Board.createNewList("Other List");
+
+            numberOfListsBefore++;
+        }
+        qa9Board.waitUntilAllElementsArePresent(By.xpath("//*[@class='list js-list-content'][.//*[contains(.,'Other List')]]"), 10);
+
+        // click on the list menu
+        qa9Board.waitUntilElementIsClickable(By.className("list-header-extras-menu"), 10);
+        driver.findElement(By.xpath("//*[@class='list js-list-content'][.//*[contains(.,'Other List')]]//*[@class='list-header-extras']")).click();
+
+        // click on "Archive this list"
+        qa9Board.clickOnArchiveList();
+
+        int numberOfListsAfter = qa9Board.getListSize();
+        Assert.assertEquals(numberOfListsAfter,numberOfListsBefore - 1);
+    }*/
+
+
 

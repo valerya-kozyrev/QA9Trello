@@ -14,12 +14,10 @@ public class MenuPageHelper extends PageBase {
     WebElement openMenuPage;
     @FindBy(xpath = "//a[@data-test-id = 'header-member-menu-profile']")
     WebElement profileAndVisibilityButton;
-    @FindBy(xpath = "//div[@class='phenom mod-attachment-type']")
-    List<WebElement> activityList;
-    @FindBy(xpath = "//div[@class='phenom mod-attachment-type'][1]")
-    WebElement lastActivityElement;
+
     @FindBy(xpath = "//*[@href='/valerya_kozyrev/activity']")
     WebElement activityButton;
+
 
     public MenuPageHelper(WebDriver driver) {
         this.driver = driver;
@@ -38,26 +36,7 @@ public class MenuPageHelper extends PageBase {
         return profileAndVisibilityButton.getText();
     }
 
-    public void openActivityList() {
-        clickActivityButton();
-        findLastActivityText();
-    }
-
-    public int getActivityListSize() {
-        return activityList.size();
-    }
-
-    public String findLastActivityText() {
-//        WebElement lastActivity = driver.findElement(By.xpath("///div[@class='phenom mod-attachment-type'][.//*[contains(text(),' added list Verify List to ')]]"));
-        return lastActivityElement.getText();
-    }
-
-    public void returnToPreviousPage() {
-        driver.navigate().back();
-    }
-
     public void clickActivityButton() {
         activityButton.click();
-        waitUntilAllElementsAreVisible(activityList, 5);
     }
 }

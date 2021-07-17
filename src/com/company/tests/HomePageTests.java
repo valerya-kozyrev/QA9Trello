@@ -7,10 +7,6 @@ import src.com.company.pages.HomePageHelper;
 
 public class HomePageTests extends TestBase{
 
-//    @BeforeMethod
-//    public  void initTest(){
-//    }
-
     @Test
     public  void verifyApplTest(){
         Assert.assertTrue(homePage.isCorrectPage());

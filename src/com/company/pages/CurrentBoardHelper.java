@@ -11,8 +11,6 @@ import java.util.List;
 
 public class CurrentBoardHelper extends PageBase {
 
-    String boardName;
-
     @FindBy(xpath = "//a[@class = 'board-tile'][.//div[@title='QA9']]")
     WebElement qa9Board;
     @FindBy(css=".placeholder")
@@ -48,21 +46,23 @@ public class CurrentBoardHelper extends PageBase {
     @FindBy(css=".list-header-name")
     List<WebElement> listName;
 
-    public CurrentBoardHelper(WebDriver driver, String boardName) {
+    String boardName;
 
+    public CurrentBoardHelper(WebDriver driver, String boardName) {
         this.driver = driver;
         this.boardName = boardName;
         PageFactory.initElements(driver,this);
     }
 
-    public By getLocatorBoardButton() {
-        return By.xpath("//a[@class = 'board-tile'][.//div[@title='" + boardName + "']]");
-    }
     public CurrentBoardHelper openPage() {
         waitUntilElementIsClickable(getLocatorBoardButton(),10);
         WebElement qa9Board = driver.findElement(getLocatorBoardButton());
         qa9Board.click();
         return this;
+    }
+
+    public By getLocatorBoardButton() {
+        return By.xpath("//a[@class = 'board-tile'][.//div[@title='" + boardName + "']]");
     }
 
     public void waitUntilCurrentBoardIsLoaded() {
@@ -213,4 +213,38 @@ public class CurrentBoardHelper extends PageBase {
         return number;
     }
 
+
+    String thisListName = "Other List";
+
+    public By getLocatorListName() {
+        return By.xpath("//*[@class='list js-list-content'][.//*[contains(.,'"+ thisListName +"')]]");
+    }
+
+    public void archiveNameList1(String s) {
+        List<WebElement> nameList = driver.findElements(getLocatorListName());
+        int beginLists = this.getNameListSize();
+        clickOnExtraMenuButtonAccordingName1(s);
+        clickOnArchiveList();
+        waitUntilElementsBecome(nameList,beginLists-1,5);
+    }
+
+    public int getNameListSize(){
+        List<WebElement> nameList = driver.findElements(getLocatorListName());
+        return nameList.size();
+    }
+
+    public void clickOnExtraMenuButtonAccordingName1(String s) {
+        WebElement otherList = driver.findElement(getLocatorListName());
+        waitUntilElementIsClickable(listMenuButton,5);
+        otherList.findElement(By.cssSelector(".list-header-extras-menu")).click();
+    }
+
+//    public int getNumberOfListsBefore1(String s) {
+//        int numberOfListsBefore = getListSize();
+//        if (getNameListSize() == 0) {
+//            createNewList(s);
+//            numberOfListsBefore++;
+//        }
+//        return numberOfListsBefore;
+//    }
 }
